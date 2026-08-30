@@ -75,12 +75,12 @@ window.語音 = (function () {
      但學生／老師主動按「🔊 再唸一次」這類按鈕時，仍然照樣播。
      設定存 localStorage，下次打開沿用。 */
   let 自動朗讀 = (() => {
-    try { return localStorage.getItem("語文_第二學期_第4單元_故宮挖寶趣:自動朗讀") !== "0"; }
+    try { return localStorage.getItem("故宮挖寶趣:自動朗讀") !== "0"; }
     catch (e) { return true; }
   })();
   function 設自動朗讀(on) {
     自動朗讀 = !!on;
-    try { localStorage.setItem("語文_第二學期_第4單元_故宮挖寶趣:自動朗讀", 自動朗讀 ? "1" : "0"); } catch (e) {}
+    try { localStorage.setItem("故宮挖寶趣:自動朗讀", 自動朗讀 ? "1" : "0"); } catch (e) {}
     if (!自動朗讀) 停止();          // 關掉時把正在播的也停掉
     return 自動朗讀;
   }

@@ -1,5 +1,5 @@
 /* ==========================================================
-   語文_第二學期_第4單元_故宮挖寶趣教學網 — 主程式
+   故宮挖寶趣教學網 — 主程式
    六大分區：點點名／圖詞輪播／教學影片／教材教學／評量／自學
    ========================================================== */
 (function () {
@@ -15,7 +15,7 @@
     function 開() {
       return new Promise((res) => {
         if (db) return res(db);
-        const r = indexedDB.open("語文_第二學期_第4單元_故宮挖寶趣照片", 1);
+        const r = indexedDB.open("故宮挖寶趣照片", 1);
         r.onupgradeneeded = () => r.result.createObjectStore("照片");
         r.onsuccess = () => { db = r.result; res(db); };
         r.onerror = () => res(null);
@@ -169,7 +169,7 @@
     /* ---------- 備份檔匯出／匯入 ---------- */
     async function 匯出() {
       if (!名單.length) { alert("名單是空的，沒有東西可以匯出。"); return; }
-      const 資料 = { 格式: "語文_第二學期_第4單元_故宮挖寶趣點名名單", 版本: 1, 匯出時間: new Date().toISOString(), 學生: [] };
+      const 資料 = { 格式: "故宮挖寶趣點名名單", 版本: 1, 匯出時間: new Date().toISOString(), 學生: [] };
       for (const s of 名單) {
         資料.學生.push({ 名: s.名, 照片: (await 相簿.取照片(s.id)) || null });
       }

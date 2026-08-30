@@ -7,7 +7,7 @@ window.工具 = (function () {
   const 存 = {
     讀(k, d) {
       try {
-        const v = localStorage.getItem("語文_第二學期_第4單元_故宮挖寶趣:" + k);
+        const v = localStorage.getItem("故宮挖寶趣:" + k);
         return v === null ? d : JSON.parse(v);
       } catch (e) {
         return d;
@@ -15,7 +15,7 @@ window.工具 = (function () {
     },
     寫(k, v) {
       try {
-        localStorage.setItem("語文_第二學期_第4單元_故宮挖寶趣:" + k, JSON.stringify(v));
+        localStorage.setItem("故宮挖寶趣:" + k, JSON.stringify(v));
       } catch (e) {}
     },
   };
